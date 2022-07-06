@@ -1,6 +1,7 @@
 /bin/
 target/
 test-output/
+screenshots/
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
