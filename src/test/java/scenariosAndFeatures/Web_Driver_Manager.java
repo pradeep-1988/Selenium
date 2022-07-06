@@ -2,6 +2,7 @@ package scenariosAndFeatures;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -31,15 +32,16 @@ public class Web_Driver_Manager {
 	public static void main(String[] args) {
 		
 		// It will download compatible chrome executable and set the path for it.
-		WebDriverManager.chromedriver().setup();
-		//WebDriverManager.firefoxdriver().setup();
+		//WebDriverManager.chromedriver().setup();
+		WebDriverManager.firefoxdriver().setup();
 		//WebDriverManager.safaridriver().setup();
 		//WebDriverManager.edgedriver().setup();
 		
-		System.out.println("Browser executable path is set as :- "+System.getProperty("webdriver.chrome.driver"));
+		System.out.println("Browser executable path is set as :- "+System.getProperty("webdriver.gecko.driver"));
 		
-		WebDriver driver = new ChromeDriver();
+		//WebDriver driver = new ChromeDriver();
 		//WebDriver driver = new SafariDriver();
+		WebDriver driver = new FirefoxDriver();
 		driver.get("https://www.google.com/");
 		System.out.println("Title is "+driver.getTitle());
 		driver.quit();	
