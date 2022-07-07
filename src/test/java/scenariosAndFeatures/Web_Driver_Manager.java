@@ -27,6 +27,9 @@ public class Web_Driver_Manager {
 	 
 	 It downloads the compatible browser driver executable as per the currently installed browser on your system and stores it on your local itself and an environment path is set up.
 	 It will download only if the compatible browser executable is not available in the cache.
+	 
+	 if we want to use a specific version of driver, we can do that by using 
+	 - WebDriverManager.chromedriver().version("2.40").setup();
 	 */
 
 	public static void main(String[] args) {
