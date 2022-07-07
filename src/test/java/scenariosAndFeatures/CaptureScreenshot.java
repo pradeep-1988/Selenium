@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -54,9 +55,13 @@ public class CaptureScreenshot {
 
 		//Move image file to new destination
 		File DestFile=new File(System.getProperty("user.dir") + "/screenshots/sel3_FullPage.jpg");
+		File DestFile2=new File(System.getProperty("user.dir") + "/screenshots/sel3_FullPage2.jpg");
 
 		//Copy file at destination
 		FileUtils.copyFile(SrcFile, DestFile);
+		
+		//We can also use the FileHandler class to copy the file
+		FileHandler.copy(SrcFile, DestFile2);
 	}
 	
 	
@@ -71,8 +76,10 @@ public class CaptureScreenshot {
 		FirefoxDriver srcShot = (FirefoxDriver) driver;
 		File sourceF = srcShot.getFullPageScreenshotAs(OutputType.FILE);
 		File destF=new File(System.getProperty("user.dir") + "/screenshots/el4_FullPage.jpg");
+		File destF2=new File(System.getProperty("user.dir") + "/screenshots/el4_FullPage2.jpg");
 		try {
 			FileUtils.copyFile(sourceF, destF);
+			FileHandler.copy(sourceF, destF2);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -84,8 +91,10 @@ public class CaptureScreenshot {
 		WebElement eleLink = driver.findElement(By.xpath("//a[@class='navbar-brand']"));
 		File srcFile = eleLink.getScreenshotAs(OutputType.FILE);
 		File destFile=new File(System.getProperty("user.dir") + "/screenshots/sel4_Element.jpg");
+		File destFile2=new File(System.getProperty("user.dir") + "/screenshots/sel4_Element2.jpg");
 		try {
 			FileUtils.copyFile(srcFile, destFile);
+			FileHandler.copy(srcFile, destFile2);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
