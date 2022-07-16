@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -71,9 +72,26 @@ public class ReadDataFromExcel {
 		System.out.println("Total rows: "+rows);
 		System.out.println("Total columns: "+cols);
 		
+		// Creating an object of FormulaEvaluator class to get the cell type information
+	    // This is quite helpful to understand which cell contains what type of data like String,Integer,double etc
+	    // FormulaEvaluator formulaEvaluator = wb.getCreationHelper().createFormulaEvaluator();  
+		
 		for(int i=0; i<=rows; i++) {
 			for(int j=1; j<cols; j++) {
+				/*
+				switch(formulaEvaluator.evaluateInCell(sheet.getRow(i).getCell(j).getCellType()))
+				{
+				case STRING:
+					System.out.print(sheet.getRow(i).getCell(j).getStringCellValue()+" ");
+					break;
+				case NUMERIC:
+					System.out.print(sheet.getRow(i).getCell(j).getNumericCellValue()+" ");
+					break;
+				}
+				*/
+				
 				System.out.print(sheet.getRow(i).getCell(j).getStringCellValue()+" ");
+				
 			}
 			System.out.println();
 		}
