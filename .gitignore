@@ -17,7 +17,7 @@ buildNumber.properties
 
 # Log file
 *.log
-
+*.xlsx
 # Compiled class file
 *.class
 
